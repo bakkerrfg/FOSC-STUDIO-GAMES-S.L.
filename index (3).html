@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOSC STUDIO GAMES S.L. | Immersive Dark Narratives</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        fosc: {
+                            bg: '#09090b', /* Very dark zinc */
+                            card: '#18181b',
+                            border: '#27272a',
+                            accent: '#dc2626', /* Crimson Red */
+                            textMuted: '#a1a1aa',
+                            textWhite: '#fafafa'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #09090b;
+            color: #fafafa;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(220, 38, 38, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(220, 38, 38, 0.03) 1px, transparent 1px);
+        }
+        .spa-view {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .spa-view.active {
+            display: block;
+            opacity: 1;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border-radius: 0.25rem;
+            border: 1px solid #27272a;
+            background-color: #09090b;
+            color: #fafafa;
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 1px #dc2626;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-grid relative">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-fosc-bg/90 backdrop-blur-md border-b border-fosc-border">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#home" class="flex items-center group">
+                    <div class="w-8 h-8 bg-fosc-accent flex items-center justify-center mr-3 group-hover:scale-105 transition-transform">
+                        <span class="font-display font-bold text-lg text-fosc-bg">F</span>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-widest text-fosc-textWhite uppercase">FOSC Studio</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-semibold text-fosc-textMuted hover:text-fosc-textWhite uppercase tracking-widest transition-colors">Games</a>
+                    <a href="#support" class="text-sm font-semibold text-fosc-textMuted hover:text-fosc-textWhite uppercase tracking-widest transition-colors">Support</a>
+                    <a href="#support" class="px-5 py-2 bg-fosc-accent text-white text-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-colors">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-fosc-textMuted hover:text-white transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-fosc-card border-b border-fosc-border">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-sm font-semibold text-fosc-textMuted hover:text-white uppercase tracking-widest border-b border-fosc-border/50">Games</a>
+                <a href="#support" class="block px-3 py-3 text-sm font-semibold text-fosc-textMuted hover:text-white uppercase tracking-widest border-b border-fosc-border/50">Support</a>
+                <a href="#privacy" class="block px-3 py-3 text-sm font-semibold text-fosc-textMuted hover:text-white uppercase tracking-widest">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-20">
+        
+        <!-- ==================== HOME VIEW ==================== -->
+        <div id="view-home" class="spa-view active">
+            <!-- Hero -->
+            <section class="py-24 lg:py-32 px-6 relative overflow-hidden">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-fosc-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+                <div class="max-w-5xl mx-auto text-center relative z-10">
+                    <div class="inline-flex items-center px-4 py-1 border border-fosc-accent text-fosc-accent text-xs font-bold tracking-widest uppercase mb-8 bg-fosc-accent/10">
+                        Barcelona, Spain
+                    </div>
+                    <h1 class="font-display font-bold text-5xl md:text-7xl text-white leading-tight mb-8 uppercase tracking-wide">
+                        Into the <br/>
+                        <span class="text-fosc-accent">Shadows.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-fosc-textMuted max-w-2xl mx-auto font-light leading-relaxed">
+                        FOSC STUDIO GAMES S.L. is an independent game development studio creating atmospheric, narrative-driven mobile experiences for iOS.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="py-20 px-6 border-t border-fosc-border bg-fosc-card/30">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-16">
+                        <h2 class="font-display text-3xl font-bold text-white mb-3 uppercase tracking-widest">In Development</h2>
+                        <p class="text-fosc-textMuted">Current projects undergoing engineering and QA.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- App 1 -->
+                        <div class="bg-fosc-bg border border-fosc-border p-8 hover:border-fosc-accent/50 transition-colors group">
+                            <div class="w-14 h-14 bg-fosc-card border border-fosc-border flex items-center justify-center text-fosc-accent mb-8 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 10.5b5.25 6-3.75 3-5.25 6M3.75 20.25v-4.5a2.25 2.25 0 014.5 0v4.5m3-7.5a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-3 uppercase tracking-widest">Crimson Fall</h3>
+                            <div class="inline-flex items-center px-3 py-1 bg-fosc-card text-fosc-textMuted border border-fosc-border text-xs font-bold uppercase tracking-widest mb-5">
+                                <span class="w-2 h-2 rounded-sm bg-yellow-500 mr-2"></span> Closed Beta
+                            </div>
+                            <p class="text-fosc-textMuted text-sm leading-relaxed">
+                                A dark fantasy ARPG optimized for Metal. Features intense combat mechanics and a branching narrative system designed exclusively for mobile architectures.
+                            </p>
+                        </div>
+
+                        <!-- App 2 -->
+                        <div class="bg-fosc-bg border border-fosc-border p-8 hover:border-fosc-accent/50 transition-colors group">
+                            <div class="w-14 h-14 bg-fosc-card border border-fosc-border flex items-center justify-center text-fosc-accent mb-8 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path></svg>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-3 uppercase tracking-widest">Fosc Engine API</h3>
+                            <div class="inline-flex items-center px-3 py-1 bg-fosc-card text-fosc-textMuted border border-fosc-border text-xs font-bold uppercase tracking-widest mb-5">
+                                <span class="w-2 h-2 rounded-sm bg-blue-500 mr-2"></span> In Engineering
+                            </div>
+                            <p class="text-fosc-textMuted text-sm leading-relaxed">
+                                Our proprietary 2D lighting and rendering framework, built to handle dynamic shadows and complex physics without draining mobile battery life.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Corporate Registry -->
+            <section class="py-20 px-6 border-t border-fosc-border">
+                <div class="max-w-4xl mx-auto">
+                    <div class="mb-10 text-center md:text-left">
+                        <h2 class="font-display text-2xl font-bold text-white mb-2 uppercase tracking-widest">Corporate Registry</h2>
+                        <p class="text-fosc-textMuted text-sm">Verified operational data.</p>
+                    </div>
+
+                    <div class="bg-fosc-card border border-fosc-border p-8 md:p-10 relative">
+                        <div class="flex items-center justify-between mb-8 pb-6 border-b border-fosc-border">
+                            <div>
+                                <p class="text-xs font-bold text-fosc-accent uppercase tracking-widest mb-2">Registered Entity</p>
+                                <h3 class="text-2xl md:text-3xl font-display font-bold text-white tracking-widest uppercase">FOSC STUDIO GAMES S.L.</h3>
+                            </div>
+                            <div class="hidden sm:block">
+                                <div class="px-4 py-1.5 bg-green-900/20 border border-green-500/30 text-green-500 text-xs font-bold uppercase tracking-widest flex items-center">
+                                    <span class="w-2 h-2 bg-green-500 mr-2 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span> Active
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-xs font-bold text-fosc-textMuted uppercase tracking-widest mb-3">D-U-N-S® Number</p>
+                                <p class="text-lg font-mono text-white font-medium bg-fosc-bg inline-block px-4 py-1.5 border border-fosc-border">373961431</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-fosc-textMuted uppercase tracking-widest mb-3">Headquarters Address</p>
+                                <p class="text-base text-white leading-relaxed font-medium">
+                                    CALLE LEPANT 270<br>
+                                    BARCELONA, 08013<br>
+                                    Spain
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== SUPPORT VIEW ==================== -->
+        <div id="view-support" class="spa-view pt-12 pb-24 px-6">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="font-display text-4xl font-bold text-white mb-4 uppercase tracking-widest">Support Portal</h1>
+                    <p class="text-fosc-textMuted">Contact our development team for technical assistance and business inquiries.</p>
+                </div>
+
+                <div class="bg-fosc-card border border-fosc-border p-8">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-fosc-textMuted uppercase tracking-widest mb-2">Name</label>
+                                <input type="text" name="name" required class="form-input" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-fosc-textMuted uppercase tracking-widest mb-2">Email Address</label>
+                                <input type="email" name="email" required class="form-input" placeholder="email@domain.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-fosc-textMuted uppercase tracking-widest mb-2">Subject</label>
+                            <select name="subject" class="form-input appearance-none">
+                                <option>Crimson Fall Beta Access</option>
+                                <option>Technical Support</option>
+                                <option>Business Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-fosc-textMuted uppercase tracking-widest mb-2">Message</label>
+                            <textarea name="message" rows="5" required class="form-input resize-none" placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-fosc-accent text-white font-bold tracking-widest uppercase hover:bg-red-700 transition-colors">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <p class="text-fosc-textMuted text-sm font-semibold uppercase tracking-widest">Direct Contact: <br>
+                    <a href="mailto:admin@foscstudiogames.life" class="text-fosc-accent hover:text-white transition-colors text-lg mt-2 inline-block">admin@foscstudiogames.life</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PRIVACY VIEW ==================== -->
+        <div id="view-privacy" class="spa-view pt-12 pb-24 px-6">
+            <div class="max-w-3xl mx-auto bg-fosc-card border border-fosc-border p-8 md:p-12">
+                <h1 class="font-display text-3xl font-bold text-white mb-2 uppercase tracking-widest">Privacy Policy</h1>
+                <p class="text-fosc-accent text-xs font-bold tracking-widest uppercase mb-8 pb-6 border-b border-fosc-border">Effective Date: March 20, 2024</p>
+                
+                <div class="space-y-6 text-fosc-textMuted text-sm leading-relaxed">
+                    <p><strong>FOSC STUDIO GAMES S.L.</strong> is committed to protecting your privacy. This policy outlines our data handling practices for our web portal and game products.</p>
+                    
+                    <h3 class="text-lg font-display font-bold text-white mt-8 mb-3 uppercase tracking-widest">1. Data Collection</h3>
+                    <p>We do not collect personal data implicitly. Crash logs and performance diagnostics from our mobile applications are collected anonymously to improve software stability.</p>
+                    
+                    <h3 class="text-lg font-display font-bold text-white mt-8 mb-3 uppercase tracking-widest">2. Data Usage</h3>
+                    <p>Any personal information provided voluntarily via our support forms is used strictly for customer service fulfillment and beta testing coordination.</p>
+
+                    <h3 class="text-lg font-display font-bold text-white mt-8 mb-3 uppercase tracking-widest">3. GDPR Compliance</h3>
+                    <p>Operating out of Barcelona, Spain, we adhere completely to the General Data Protection Regulation (GDPR). Users have the right to request access, modification, or deletion of their submitted data.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TERMS VIEW ==================== -->
+        <div id="view-terms" class="spa-view pt-12 pb-24 px-6">
+            <div class="max-w-3xl mx-auto bg-fosc-card border border-fosc-border p-8 md:p-12">
+                <h1 class="font-display text-3xl font-bold text-white mb-2 uppercase tracking-widest">Terms of Service</h1>
+                <p class="text-fosc-accent text-xs font-bold tracking-widest uppercase mb-8 pb-6 border-b border-fosc-border">Last Updated: March 20, 2024</p>
+                
+                <div class="space-y-6 text-fosc-textMuted text-sm leading-relaxed">
+                    <p>By accessing the digital platforms and software of <strong>FOSC STUDIO GAMES S.L.</strong>, you agree to comply with these Terms of Service.</p>
+                    
+                    <h3 class="text-lg font-display font-bold text-white mt-8 mb-3 uppercase tracking-widest">1. Licensing</h3>
+                    <p>We grant users a limited, non-exclusive license to use our applications for personal entertainment. Commercial redistribution or reverse engineering of our code is strictly prohibited.</p>
+                    
+                    <h3 class="text-lg font-display font-bold text-white mt-8 mb-3 uppercase tracking-widest">2. Liability</h3>
+                    <p>Our applications (including beta versions) are provided "as is". FOSC STUDIO GAMES S.L. is not liable for data loss or hardware issues stemming from the use of pre-release software.</p>
+
+                    <h3 class="text-lg font-display font-bold text-white mt-8 mb-3 uppercase tracking-widest">3. Governing Law</h3>
+                    <p>These terms are governed by the laws of Spain. Any disputes shall be subject to the exclusive jurisdiction of the courts in Barcelona.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-fosc-border bg-fosc-bg px-6 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <span class="font-display font-bold text-white uppercase tracking-widest block mb-1">FOSC STUDIO GAMES S.L.</span>
+                <span class="text-fosc-textMuted">&copy; 2024-2026. All rights reserved.</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#privacy" class="text-fosc-textMuted hover:text-white uppercase tracking-widest transition-colors">Privacy</a>
+                <a href="#terms" class="text-fosc-textMuted hover:text-white uppercase tracking-widest transition-colors">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Router Script -->
+    <script>
+        function route() {
+            let hash = window.location.hash || '#home';
+            if (hash === '#' || hash === '') hash = '#home';
+
+            document.querySelectorAll('.spa-view').forEach(view => {
+                view.classList.remove('active');
+            });
+
+            const targetView = document.querySelector('#view-' + hash.substring(1));
+            if (targetView) {
+                targetView.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                document.querySelector('#view-home').classList.add('active');
+                window.location.hash = '#home';
+            }
+        }
+
+        window.addEventListener('hashchange', route);
+        window.addEventListener('DOMContentLoaded', route);
+
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
